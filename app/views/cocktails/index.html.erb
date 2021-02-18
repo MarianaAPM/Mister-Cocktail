@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand">Mister Cocktail</a>
+  <%=link_to "Mister Cocktail", cocktails_path, class:"navbar-brand btn", style: "font-family: Kaushan Script" %>
   <form class="form-inline">
     <%= link_to "Create Cocktail", new_cocktail_path, class: "btn btn-outline-secondary my-2 my-sm-0" %>
   </form>
@@ -8,7 +8,7 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-12">
-      <h2>What's your favorite cocktail?</h2>
+      <h2 class="title mt-5 text-center">Welcome to Mister Cocktail!</h2>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
   <div class='container d-inline-flex flex-wrap'>
     <div class="row justify-content-center">
       <% @cocktails.each do |cocktail| %>
-        <div class='card m-3' style="width: 18rem">
+        <div class='card m-3' style="width: 15rem">
           <div class="col-12">
             <div class="flat-card ">
               <%= image_tag "https://images.unsplash.com/photo-1550426735-c33c7ce414ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80", class: "card-img-top", style: "height: 200px; object-fit: cover; margin-top: 20px; margin-bottom: 10px;" %>
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

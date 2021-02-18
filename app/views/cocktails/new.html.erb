@@ -1,0 +1,9 @@
+<%= render "navbar" %>
+
+<div class='container mt-5'>
+  <%= simple_form_for [@cocktail] do |f| %>
+    <%= f.input :name %>
+    <!-- adds bootstrap button  -->
+    <%= f.submit class: 'btn btn-dark' %>
+  <% end %>
+</div>

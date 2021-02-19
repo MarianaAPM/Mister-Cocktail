@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-dark">
-  <%=link_to "Mister Cocktail", cocktails_path, class:"navbar-brand btn", style: "font-family: Kaushan Script" %>
+  <%=link_to "Mister Cocktail", root_path, class:"navbar-brand btn", style: "font-family: Kaushan Script" %>
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Search</button>
@@ -20,7 +20,7 @@
         <div class='card m-3 radius-5' style="width: 15rem">
           <div class="col-12">
             <div class="flat-card ">
-              <%= image_tag "https://images.unsplash.com/photo-1550426735-c33c7ce414ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80", class: "card-img-top", style: "height: 200px; object-fit: cover; margin-top: 20px; margin-bottom: 10px;" %>
+              <%# <%= cl_image_tag(cocktail.photo.key, style: "width: 13rem; height: 200px; object-fit: cover; margin-top: 20px; margin-bottom: 10px;") %> %>
               <div class="flat-card-content">
                 <div class="flat-card-title text-truncate">
                   <h4><%= cocktail.name %></h4>

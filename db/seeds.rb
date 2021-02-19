@@ -16,7 +16,7 @@ ingredient_serialized = open(url).read
 ingredients = JSON.parse(ingredient_serialized)
 
 #pega só o nome do ingrediente
-ingredients["drinks"].first(10).each do |ingredient|
+ingredients["drinks"].first(100).each do |ingredient|
   Ingredient.create(
   # ingredient = {"strIngredient1"=>"Light rum"}
   name: ingredient["strIngredient1"])

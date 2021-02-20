@@ -20,11 +20,11 @@
         <div class='card m-3 radius-5' style="width: 15rem">
           <div class="col-12">
             <div class="flat-card ">
-            
+
               <% if cocktail.photo.attached? %>
                 <%= cl_image_tag(cocktail.photo.key, style: "width: 13rem; height: 200px; object-fit: cover; margin-top: 20px; margin-bottom: 10px;") %>
               <% else %>
-                <img class="card-default" src="https://res.cloudinary.com/dn6lyapiu/image/upload/v1613777250/photo-1536599424071-0b215a388ba7_ven7eg.jpg">
+                <%= cl_image_tag'photo-1536599424071-0b215a388ba7_ven7eg', style: "width: 13rem; height: 200px; object-fit: cover; margin-top: 20px; margin-bottom: 10px;" %>
               <% end %>
               
               <div class="flat-card-content">

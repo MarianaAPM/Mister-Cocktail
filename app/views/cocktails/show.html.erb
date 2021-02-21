@@ -28,11 +28,25 @@
           <%= f.input :description %>
           <%= f.association :ingredient %>
           <!-- adds bootstrap button  -->
-          <%= f.submit class: 'btn btn-dark' %>
+          <%= f.submit class: 'btn btn-dark mb-3' %>
         <% end %>
       </div>
     </div>
+  <% @cocktail.reviews.each do |review| %>
+    <div class="card my-3 ">    
+      <div class="card-header">
+
+          <% if review.user.present? %>
+            <p class="card-text d-flex justify-content-between"><i> <%= review.user %></i><%= '⭐' * review.rating %></p>
+          <% else %>
+            <p class="card-text d-flex justify-content-between"><i><%= "anonymous review" %></i><%= '⭐' * review.rating %></p>
+          <% end %>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= review.content %></p>
+      </div>
+    </div>
+    <% end %>
+    <%# <%= render "reviews/new" %>
   </div>
 </div>
-
-

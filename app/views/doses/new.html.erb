@@ -1,0 +1,28 @@
+<%= render "shared/navbar" %>
+
+<div class='container mt-5'>
+
+
+  <div class="card my-3">
+    <div class="card-header">
+      <i class="fas fa-cocktail"></i><i>   1 Creating Cocktail</i>
+    </div>
+    <div class="card-body">
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li class="card-text"><%= dose.description %>: <%= dose.ingredient.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <!-- adds bootstrap button  -->
+    <%= f.submit class: 'btn btn-dark mb-3' %> <%= link_to "Create Cocktail", cocktail_path(@cocktail), class: 'btn btn-dark mb-3' %>
+  <% end %>
+
+  
+</div>

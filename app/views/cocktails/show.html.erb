@@ -6,47 +6,53 @@
   </div>
 </div>
 
-
 <div class="container mt-5">
   <h2>Doses</h2>
   <div class='cocktail-info'>
     <div class='row'>
+      
       <div class='col-lg-6 mb-5'>
-        <div class="card mt-3">
+        <div class="card my-3">
           <div class="card-header">
             <i class="fas fa-cocktail"></i><i>   1 Cocktail</i>
           </div>
           <div class="card-body">
             <% @cocktail.doses.each do |dose| %>
-              <p class="card-text d-flex justify-content-between"><%= dose.description %>: <%= dose.ingredient.name %><%= link_to "delete", dose_path(dose), method: :delete %></p>
+              <p class="card-text"><%= dose.description %>: <%= dose.ingredient.name %></p>
             <% end %>
           </div>
         </div>
+        <div class='d-flex justify-content-end'>
+          <%= link_to "Edit cocktail", edit_cocktail_path(@cocktail), class: 'btn btn-dark' %>
+        </div>
       </div>
+          
       <div class='col-lg-6'>
-        <%= simple_form_for [@cocktail, @dose] do |f| %>
-          <%= f.input :description %>
-          <%= f.association :ingredient %>
-          <!-- adds bootstrap button  -->
-          <%= f.submit class: 'btn btn-dark mb-3' %>
-        <% end %>
-      </div>
-    </div>
-  <% @cocktail.reviews.each do |review| %>
-    <div class="card my-3 ">    
-      <div class="card-header">
+        <% @cocktail.reviews.each do |review| %>
+          <div class="card my-3 ">    
+            <div class="card-header">
 
-          <% if review.user.present? %>
-            <p class="card-text d-flex justify-content-between"><i> <%= review.user %></i><%= '⭐' * review.rating %></p>
+                <% if review.user.present? %>
+                  <p class="card-text d-flex justify-content-between"><i> <%= review.user %></i><%= '⭐' * review.rating %></p>
+                <% else %>
+                  <p class="card-text d-flex justify-content-between"><i><%= "anonymous review" %></i><%= '⭐' * review.rating %></p>
+                <% end %>
+            </div>
+            <% if review.content.present? %>
+              <div class="card-body">
+                <p class="card-text"><%= review.content %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <div class='d-flex justify-content-end'>
+          <% if @cocktail.reviews.present? %>
+            <%= link_to "Add Review", new_cocktail_review_path(@cocktail), class: 'btn btn-dark' %>
           <% else %>
-            <p class="card-text d-flex justify-content-between"><i><%= "anonymous review" %></i><%= '⭐' * review.rating %></p>
+            <%= link_to "First Review", new_cocktail_review_path(@cocktail), class: 'btn btn-dark' %>
           <% end %>
-      </div>
-      <div class="card-body">
-        <p class="card-text"><%= review.content %></p>
+        </div>
       </div>
     </div>
-    <% end %>
-    <%# <%= render "reviews/new" %>
   </div>
 </div>

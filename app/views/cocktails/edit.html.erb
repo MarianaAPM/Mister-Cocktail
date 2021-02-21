@@ -1,0 +1,21 @@
+<%= render "shared/navbar" %>
+
+<div class='container mt-5'>
+
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo %>
+  <% end %>
+
+  <div class="card my-5">
+    <div class="card-header">
+      <i class="fas fa-cocktail"></i><i>   1 Cocktail</i>
+    </div>
+    <div class="card-body">
+      <% @cocktail.doses.each do |dose| %>
+        <p class="card-text d-flex justify-content-between"><%= dose.description %>: <%= dose.ingredient.name %><%= link_to "delete", dose_path(dose), method: :delete %></p>
+      <% end %>
+    </div>
+  </div>
+
+ </div>

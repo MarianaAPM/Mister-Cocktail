@@ -3,13 +3,14 @@
 <div class='container mt-5'>
 
   <%= simple_form_for @cocktail do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo %>
+    <%= f.input :name, label: false, input_html: { placeholder: "Cocktails name" } %>
+    <%= f.input :photo, label: false %>
+    <%= f.submit class: 'btn btn-dark mb-3' %>
   <% end %>
 
-  <div class="card my-5">
+  <div class="card mt-5 mb-3">
     <div class="card-header">
-      <i class="fas fa-cocktail"></i><i>   1 Cocktail</i>
+      <i class="fas fa-cocktail"></i><i> Update Doses</i>
     </div>
     <div class="card-body">
       <% @cocktail.doses.each do |dose| %>
@@ -18,4 +19,6 @@
     </div>
   </div>
 
- </div>
+    <%= link_to "Update doses", new_cocktail_dose_path(@cocktail), class: 'btn btn-dark mb-3' %>
+  
+</div>
